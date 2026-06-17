@@ -163,4 +163,44 @@ export const reviews = [
     source: "Google",
     rating: 5,
   },
+  {
+    quote:
+      "I tried this place for the first time and it was AMAZING! Alex gave me a haircut and was so patient, helpful, and talented.",
+    name: "Carolina U.",
+    detail: "First visit",
+    source: "Yelp",
+    rating: 5,
+  },
+  {
+    quote:
+      "The best haircut I have gotten in NYC! Alex was amazing — gave me a great wash, cut and blow out, and did it in such a timely manner. I will definitely be coming back!",
+    name: "Maddy G.",
+    detail: "Wash, cut & blow-out",
+    source: "Yelp",
+    rating: 5,
+  },
+  {
+    quote:
+      "Amazing service! So attentive, kind, and precise. The price is amazing for the quality of the cut. 100% recommend!",
+    name: "Olive J.",
+    detail: "Cut",
+    source: "Yelp",
+    rating: 5,
+  },
+  {
+    quote:
+      "This is hubby's go-to spot for a quick, no-fuss haircut. $23 for the cut plus tip — very straightforward, and it took less than 15 minutes. Wow!",
+    name: "Amanda W.",
+    detail: "Men's cut",
+    source: "Yelp",
+    rating: 5,
+  },
+  {
+    quote:
+      "Lana is the sweetest woman, and I was so impressed with how much time and care she put into cutting my hair.",
+    name: "Verified guest",
+    detail: "Cut with Lana",
+    source: "Yelp",
+    rating: 5,
+  },
 ] as const;
