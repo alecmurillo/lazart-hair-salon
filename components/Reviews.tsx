@@ -62,7 +62,7 @@ export function Reviews() {
             <div className="aspect-[9/16] overflow-hidden rounded-[var(--r-card)] border border-line bg-black shadow-[var(--shadow-card)]">
               <iframe
                 title={`${site.name} on TikTok`}
-                src={`https://www.tiktok.com/player/v1/${site.media.tiktokVideoId}?controls=1&progress_bar=1&play_button=1&volume_control=1&fullscreen_button=1&timestamp=1&rel=0&description=0`}
+                src={`https://www.tiktok.com/player/v1/${site.media.tiktokVideoId}?controls=1&progress_bar=1&play_button=1&volume_control=1&fullscreen_button=1&timestamp=1&rel=0&description=0&t=15`}
                 loading="lazy"
                 allow="encrypted-media; fullscreen; picture-in-picture"
                 className="block h-full w-full border-0"
