@@ -57,16 +57,15 @@ export function Reviews() {
             </a>
           </div>
 
-          {/* Vertical TikTok — sized to TikTok's embed (min 325px wide) so nothing clips */}
+          {/* Vertical TikTok player with full transport controls (play/pause, seek, replay) */}
           <div className="mx-auto w-full max-w-[325px]">
-            <div className="overflow-hidden rounded-[var(--r-card)] border border-line bg-surface-2 shadow-[var(--shadow-card)]">
+            <div className="aspect-[9/16] overflow-hidden rounded-[var(--r-card)] border border-line bg-black shadow-[var(--shadow-card)]">
               <iframe
                 title={`${site.name} on TikTok`}
-                src={`https://www.tiktok.com/embed/v2/${site.media.tiktokVideoId}`}
+                src={`https://www.tiktok.com/player/v1/${site.media.tiktokVideoId}?controls=1&progress_bar=1&play_button=1&volume_control=1&fullscreen_button=1&timestamp=1&rel=0&description=0`}
                 loading="lazy"
-                scrolling="no"
                 allow="encrypted-media; fullscreen; picture-in-picture"
-                className="block h-[738px] w-full border-0"
+                className="block h-full w-full border-0"
               />
             </div>
           </div>
