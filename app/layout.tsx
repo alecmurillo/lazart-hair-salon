@@ -4,6 +4,7 @@ import "./globals.css";
 import { site } from "@/lib/site-config";
 import { CalendlyLoader } from "@/components/booking-client";
 import { Analytics } from "@/components/Analytics";
+import { PostHogProvider } from "@/components/posthog-provider";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -45,12 +46,14 @@ export default function RootLayout({
       className={`${playfair.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full">
-        <a href="#main" className="skip-link">
-          Skip to main content
-        </a>
-        {children}
-        <Analytics />
-        <CalendlyLoader />
+        <PostHogProvider>
+          <a href="#main" className="skip-link">
+            Skip to main content
+          </a>
+          {children}
+          <Analytics />
+          <CalendlyLoader />
+        </PostHogProvider>
       </body>
     </html>
   );
