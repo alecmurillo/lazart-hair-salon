@@ -31,7 +31,11 @@ export function Hero() {
 
             <div className="mt-7 flex flex-wrap items-center gap-3">
               <BookButton size="lg">Book an appointment</BookButton>
-              <a href={site.contact.phoneHref} className="btn btn-ghost size-lg">
+              <a
+                href={site.contact.phoneHref}
+                data-track="call_click"
+                className="btn btn-ghost size-lg"
+              >
                 Call {site.contact.phone}
               </a>
             </div>
@@ -120,6 +124,7 @@ export function Hero() {
               href={site.contact.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
+              data-track="directions_click"
               className="mt-2 inline-block text-[14px] font-bold text-green underline-offset-4 hover:underline"
             >
               Get directions →
@@ -152,6 +157,7 @@ export function Hero() {
             <BookButton size="base">Book an appointment</BookButton>
             <a
               href={site.contact.phoneHref}
+              data-track="call_click"
               className="text-[14px] font-bold text-green-strong hover:underline"
             >
               or call {site.contact.phone}

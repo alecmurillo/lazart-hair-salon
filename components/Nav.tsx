@@ -41,6 +41,7 @@ export function Nav() {
         <div className="flex items-center gap-3">
           <a
             href={site.contact.phoneHref}
+            data-track="call_click"
             className="hidden text-[14px] font-bold text-green transition-colors hover:text-green-strong sm:inline"
           >
             {site.contact.phone}

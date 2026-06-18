@@ -67,6 +67,7 @@ export function Footer() {
             </address>
             <a
               href={site.contact.phoneHref}
+              data-track="call_click"
               className="mt-2 block text-[15px] font-bold text-[#f6f0e4] hover:text-white"
             >
               {site.contact.phone}
@@ -78,6 +79,7 @@ export function Footer() {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-track={s.label === "TikTok" ? "tiktok_click" : undefined}
                   className="text-[#d8e3d2] transition-colors hover:text-white"
                 >
                   {s.label}

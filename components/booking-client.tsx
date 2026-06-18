@@ -58,6 +58,7 @@ export function BookButton({
     <button
       type="button"
       onClick={open}
+      data-track="book_click"
       className={`btn btn-${variant} size-${size} ${className}`}
     >
       {children}

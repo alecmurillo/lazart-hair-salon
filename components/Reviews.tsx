@@ -40,6 +40,7 @@ export function Reviews() {
               href={site.media.tiktokUrl}
               target="_blank"
               rel="noopener noreferrer"
+              data-track="tiktok_click"
               className="mt-6 inline-flex items-center gap-2 text-[14px] font-bold text-green hover:text-green-strong"
             >
               See us on TikTok
