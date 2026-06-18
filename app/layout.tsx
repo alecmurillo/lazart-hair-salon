@@ -3,7 +3,6 @@ import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/site-config";
 import { CalendlyLoader } from "@/components/booking-client";
-import { PostHogProvider } from "@/components/posthog-provider";
 import { Analytics } from "@/components/Analytics";
 
 const playfair = Playfair_Display({
@@ -46,14 +45,12 @@ export default function RootLayout({
       className={`${playfair.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full">
-        <PostHogProvider>
-          <a href="#main" className="skip-link">
-            Skip to main content
-          </a>
-          {children}
-          <Analytics />
-          <CalendlyLoader />
-        </PostHogProvider>
+        <a href="#main" className="skip-link">
+          Skip to main content
+        </a>
+        {children}
+        <Analytics />
+        <CalendlyLoader />
       </body>
     </html>
   );
