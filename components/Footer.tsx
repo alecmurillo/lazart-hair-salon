@@ -95,6 +95,18 @@ export function Footer() {
           </p>
           <p>Hair · Color · Styling — walk-in &amp; by appointment.</p>
         </div>
+        <p className="mt-4 max-w-[70ch] text-[12px] leading-[1.6] text-[#6f8569]">
+          We use cookies and basic analytics — including approximate location
+          from your IP address — to measure site traffic and improve your
+          experience. We don&apos;t sell your data. Contact us at{" "}
+          <a
+            href={site.contact.phoneHref}
+            className="underline underline-offset-2 hover:text-[#d8e3d2]"
+          >
+            {site.contact.phone}
+          </a>{" "}
+          with any privacy questions.
+        </p>
       </div>
     </footer>
   );
