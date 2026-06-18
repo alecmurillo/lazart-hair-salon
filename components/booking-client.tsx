@@ -1,7 +1,9 @@
 "use client";
 
+import { useEffect } from "react";
 import Script from "next/script";
 import { site } from "@/lib/site-config";
+import { track } from "@/lib/track";
 
 declare global {
   interface Window {
@@ -11,8 +13,25 @@ declare global {
   }
 }
 
-/** Loads the Calendly popup assets once, app-wide. */
+/** Loads the Calendly popup assets + records completed bookings as a funnel event. */
 export function CalendlyLoader() {
+  // Calendly posts a message when an appointment is actually booked.
+  useEffect(() => {
+    if (!site.calendlyUrl) return;
+    const onMsg = (e: MessageEvent) => {
+      const data = e.data as { event?: string } | null;
+      if (
+        data &&
+        typeof data === "object" &&
+        data.event === "calendly.event_scheduled"
+      ) {
+        track("booking_scheduled");
+      }
+    };
+    window.addEventListener("message", onMsg);
+    return () => window.removeEventListener("message", onMsg);
+  }, []);
+
   if (!site.calendlyUrl) return null;
   return (
     <>
@@ -46,6 +65,7 @@ export function BookButton({
   withArrow = true,
 }: Props) {
   const open = () => {
+    track("calendly_opened");
     const url = site.calendlyUrl;
     if (typeof window !== "undefined" && window.Calendly) {
       window.Calendly.initPopupWidget({ url });

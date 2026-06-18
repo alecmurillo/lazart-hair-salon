@@ -1,5 +1,6 @@
-// Lightweight first-party event tracker → POST /api/track.
-// Safe to import in client components; all calls no-op on the server.
+// Lightweight first-party event tracker → POST /api/track, and mirrored into
+// PostHog so funnels work. Safe to import in client components; no-ops on the server.
+import posthog from "posthog-js";
 
 function id(key: string, store: Storage): string {
   let v = store.getItem(key);
@@ -41,5 +42,18 @@ export function track(event: string, extra: Record<string, unknown> = {}) {
     }
   } catch {
     /* analytics must never break the page */
+  }
+
+  // Mirror named events into PostHog for funnels. Skip "pageview" — the
+  // PostHog provider already sends the canonical $pageview on route change.
+  try {
+    if (
+      event !== "pageview" &&
+      (posthog as unknown as { __loaded?: boolean }).__loaded
+    ) {
+      posthog.capture(event, extra);
+    }
+  } catch {
+    /* never break the page */
   }
 }

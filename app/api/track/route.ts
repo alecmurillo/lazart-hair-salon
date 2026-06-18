@@ -10,6 +10,8 @@ const ALLOWED = new Set([
   "call_click",
   "directions_click",
   "tiktok_click",
+  "calendly_opened",
+  "booking_scheduled",
 ]);
 
 function header(req: NextRequest, name: string) {
